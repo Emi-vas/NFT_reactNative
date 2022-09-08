@@ -2,9 +2,10 @@ import React from 'react';
 import { View, TouchableOpacity, Image, Text } from 'react-native';
 import { COLORS, SHADOWS, SIZES } from '../constants';
 
-export const CircleButton = ({ imgUrl, right, top }) => {
+export const CircleButton = ({ imgUrl, right, top, left, handlePress }) => {
     return (
         <TouchableOpacity
+            onPress={handlePress}
             style={{
                 width: 40,
                 height: 40,
@@ -16,7 +17,8 @@ export const CircleButton = ({ imgUrl, right, top }) => {
                 ...SHADOWS.light,
 
                 top: top,
-                right: right
+                right: right,
+                left: left
             }}
         >
            <Image 
@@ -27,19 +29,19 @@ export const CircleButton = ({ imgUrl, right, top }) => {
     );
 };
 
-export const RectButton = ({ text, handlePress }) => {
+export const RectButton = ({ text, handlePress, fontSize }) => {
     return (
         <TouchableOpacity
             onPress={handlePress}
             style={{
                 minWidth: 90,
                 backgroundColor: COLORS.blue,
-                borderRadius: 15
+                borderRadius: 30,
             }}
         >
             <Text 
                 style={{ 
-                    textAlign: 'center', color: "white", padding: 10 
+                    textAlign: 'center', color: "white", padding: 10, fontSize: fontSize || 13
                 }}
             > 
                 { text } 
