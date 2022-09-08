@@ -23,13 +23,7 @@ export const NFTTitle = ({title, subTitle}) => {
         </View>
     );
 };
-export const ETHPrice = () => {
-    return (
-        <View>
-            <Text>eth</Text>
-        </View>
-    );
-};
+
 export const ImageCmp = ({ imgUrl, index }) => {
     return (
         <View>

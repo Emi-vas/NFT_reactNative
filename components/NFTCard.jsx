@@ -3,7 +3,7 @@ import { View, Text, Image,  } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import { COLORS, SIZES, SHADOWS, assets } from '../constants';
-import { CircleButton } from './Buttons';
+import { CircleButton, RectButton } from './Buttons';
 import { NFTTitle, SubInfo } from './SubInfos';
 
 const NFTCard = ({ data }) => {
@@ -34,8 +34,20 @@ const NFTCard = ({ data }) => {
             
             <SubInfo price={data.price} />
 
-            <View style={{ width: "100%", padding: SIZES.font }}>
+            <View 
+                style={{
+                    width: "100%", 
+                    padding: SIZES.font,
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    alignItems: "center"
+                }}
+            >
                 <NFTTitle title={data.name} subTitle={data.creator} />
+                <RectButton 
+                    text="Place a bid"
+                    handlePress={()=> navigation.navigate("Details", { data })}
+                />
             </View>
         </View>
     );
