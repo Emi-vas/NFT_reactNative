@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image, StatusBar, FlatList } from 'react-native';
 
+import { COLORS, SIZES, SHADOWS, FONTS, assets } from "../constants"
 
 const Details = () => {
     return (

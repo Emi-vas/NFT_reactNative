@@ -24,6 +24,14 @@ export const FONTS = {
   light: "InterLight",
 };
 
+export const FLEX = {
+  spaceBetween: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: 'center'
+  }
+}
+
 export const SHADOWS = {
   light: {
     shadowColor: COLORS.gray,

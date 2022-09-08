@@ -3,6 +3,8 @@ import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import Home from "./Screens/Home";
 import Details from "./Screens/Details";
+import {TouchableWithoutFeedback, Keyboard } from 'react-native';
+
 
 const Stack = createStackNavigator()
 
@@ -27,12 +29,15 @@ export default function App() {
   if(!loaded) return null
 
   return (
-    <NavigationContainer theme={theme}>
-      <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Details" component={Details} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <TouchableWithoutFeedback  onPress={()=> Keyboard.dismiss()}>
+
+      <NavigationContainer theme={theme}>
+        <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Home">
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Details" component={Details} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </TouchableWithoutFeedback>
   );
 }
 
