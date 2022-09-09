@@ -43,6 +43,7 @@ export const People = () => {
         <View
             style= {{
                 flexDirection: "row",
+                zIndex: 1
             }}
         >
             {
