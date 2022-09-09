@@ -1,8 +1,25 @@
-import { View, Text, Image, TextInput } from 'react-native';
+import { useEffect, useState } from 'react';
+import { View, Text, Image, TextInput, Keyboard } from 'react-native';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { Entypo } from '@expo/vector-icons'; 
 
 import { COLORS, SIZES, FONTS, assets, FLEX } from "../constants"
 
-const HomeHeader = () => {
+const HomeHeader = ({ setSearch, search }) => {
+
+    const [displayCross, setDisplayCross] = useState(false)
+
+    useEffect(() => {
+        if(search != "") {
+            setDisplayCross(true)
+        } else {
+            setDisplayCross(false)
+        }
+    }, [search])
+
+    const handleSearch = (value) => {
+        setSearch(value)
+    }
     return (
         <View
             style={{
@@ -51,10 +68,23 @@ const HomeHeader = () => {
                     />
 
                     <TextInput
+                        value={search}
                         placeholder="Search NFTs"
                         style={{ flex: 1, color: "white" }}
-                        onChangeText={() => {}}
+                        onChangeText={handleSearch}
                     />
+                    
+                    {
+                        displayCross &&
+                        <Entypo
+                            name="circle-with-cross" size={24} color="white" 
+                            onPress={()=> {
+                                setSearch("")
+                                Keyboard.dismiss()
+                            }}
+                        />
+                    }
+                   
                 </View>
             </View>
         </View>
